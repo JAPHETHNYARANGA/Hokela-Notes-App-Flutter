@@ -3,6 +3,8 @@ import 'package:flutter/painting.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hokela_app/screens/registerScreen.dart';
 
+import 'homeScreen.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -33,19 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       decoration: TextDecoration.none,
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Name',
-                        hintStyle: TextStyle(color: Colors.white),
-                        // fillColor: Colors.white,
-                        // filled: true
-                      ),
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
+
                   const Padding(
                     padding: EdgeInsets.all(12.0),
                     child: TextField(
@@ -74,14 +64,21 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
-                  const Padding(
+                   Padding(
                     padding: EdgeInsets.all(10.0),
                     child: SizedBox(
                       width: double.infinity,
                       child: FloatingActionButton.extended(
                         label: Text('Login'), // <-- Text
                         backgroundColor: Colors.green,
-                        onPressed: _onLoginPressed,
+                        onPressed: () =>{
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                        builder: (context) =>
+                        const HomeScreen())
+                        )
+                        },
                       ),
                     ),
                   ),
@@ -114,14 +111,21 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-void _onLoginPressed() {
-  // do something when the button is pressed
-  Fluttertoast.showToast(
-      msg: "Login successful",
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.CENTER,
-      // timeInSecForIosWeb: 1,
-      backgroundColor: Colors.green,
-      textColor: Colors.white,
-      fontSize: 16.0);
-}
+// void _onLoginPressed() {
+//   // do something when the button is pressed
+//   Fluttertoast.showToast(
+//       msg: "Login successful",
+//       toastLength: Toast.LENGTH_SHORT,
+//       gravity: ToastGravity.CENTER,
+//       // timeInSecForIosWeb: 1,
+//       backgroundColor: Colors.green,
+//       textColor: Colors.white,
+//       fontSize: 16.0);
+//
+//   Navigator.push(
+//       context,
+//       MaterialPageRoute(
+//           builder: (context) =>
+//           const RegisterScreen())
+//   );
+// }
